@@ -20,7 +20,7 @@ public class Esercizio2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DatiCondivisi dati = new DatiCondivisi();
+        DatiCondivisi dati = new DatiCondivisi(36);
         ThreadGenera t1=new ThreadGenera(dati);
         ThreadContaPari t2=new ThreadContaPari(dati);
         ThreadContaDispari t3=new ThreadContaDispari(dati);
