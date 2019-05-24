@@ -5,6 +5,9 @@
  */
 package esercizio2;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ingarozza_luigi
@@ -16,5 +19,22 @@ public class ThreadContaDispari extends Thread {
     public ThreadContaDispari(DatiCondivisi dati) {
         this.ptrDati = dati;
     }    
+    public void run(){
+        for(int i = 0; i < ptrDati.getValoriDaGenerare();i++){
+            try {
+                //fine genera
+                ptrDati.getFineGeneraDispari().acquire();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ThreadContaDispari.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        int numero = ptrDati.getBuffer();
+
+        if((numero%2==1)&&(numero!=0)){
+            ptrDati.incNDispariLetti();
+        }
+        }
+        //fine lettura
+        ptrDati.getFineLetturaDue().release();
+    }
     
 }

@@ -34,7 +34,7 @@ public class ThreadGenera extends Thread {
         random = rnd.nextInt(36);
         ptrDati.setBuffer(random);
         int numero = random;
-
+        
         if((numero%2==0)&&(numero!=0)){
             ptrDati.incPariInseriti();
         }
